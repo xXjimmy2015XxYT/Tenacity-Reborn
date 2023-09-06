@@ -64,7 +64,7 @@ public class SearchPanel extends Panel {
 
     @Override
     public void drawScreen(int mouseX, int mouseY) {
-        if (ModernClickGui.searching) {
+        if (ModernClickGUI.searching) {
             expandAnim2.setDirection(rightClicked ? Direction.FORWARDS : Direction.BACKWARDS);
             List<Module> possibleMods = Tenacity.INSTANCE.getModuleCollection().getModulesThatContainText(text);
             if (!text.equals(searchBar.getText())) {
@@ -138,7 +138,7 @@ public class SearchPanel extends Panel {
                 StencilUtil.uninitStencilBuffer();
             }
 
-            ClickGUIMod.modernClickGui.adjustWidth((125 * expandAnim2.getOutput().floatValue()));
+            ClickGUIMod.modernClickGUI.adjustWidth((125 * expandAnim2.getOutput().floatValue()));
 
         } else {
             currentlySelected = null;

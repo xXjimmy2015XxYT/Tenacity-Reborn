@@ -5,8 +5,9 @@ import dev.tenacity.module.Module;
 import dev.tenacity.module.settings.impl.BooleanSetting;
 import dev.tenacity.module.settings.impl.ModeSetting;
 import dev.tenacity.module.settings.impl.NumberSetting;
+import dev.tenacity.ui.clickguis.compact.CompactClickGUI;
 import dev.tenacity.ui.clickguis.dropdown.DropdownClickGUI;
-import dev.tenacity.ui.clickguis.modern.ModernClickGui;
+import dev.tenacity.ui.clickguis.modern.ModernClickGUI;
 import dev.tenacity.utils.render.Theme;
 import org.lwjgl.input.Keyboard;
 
@@ -21,8 +22,9 @@ public class ClickGUIMod extends Module {
     public static final NumberSetting clickHeight = new NumberSetting("Tab Height", 250, 500, 100, 1);
     public static final BooleanSetting rescale = new BooleanSetting("Rescale GUI", true);
 
-    public static final DropdownClickGUI dropdownClickGui = new DropdownClickGUI();
-    public static final ModernClickGui modernClickGui = new ModernClickGui();
+    public static final DropdownClickGUI dropdownClickGUI = new DropdownClickGUI();
+    public static final ModernClickGUI modernClickGUI = new ModernClickGUI();
+    public static final CompactClickGUI compactClickGUI = new CompactClickGUI();
 
     private int activeCategory = 0;
     private Category activeCategory2 = Category.COMBAT;
@@ -53,10 +55,13 @@ public class ClickGUIMod extends Module {
         }
         switch (clickguiMode.getMode()) {
             case "Dropdown":
-                mc.displayGuiScreen(dropdownClickGui);
+                mc.displayGuiScreen(dropdownClickGUI);
                 break;
             case "Modern":
-                mc.displayGuiScreen(modernClickGui);
+                mc.displayGuiScreen(modernClickGUI);
+                break;
+            case "":
+                mc.displayGuiScreen(compactClickGUI);
                 break;
 
         }

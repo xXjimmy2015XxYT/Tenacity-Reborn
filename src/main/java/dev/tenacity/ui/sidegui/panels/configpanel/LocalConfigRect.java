@@ -103,9 +103,9 @@ public class LocalConfigRect implements Screen {
                             String loadData = FileUtils.readFile(config.getFile());
 
                             if (Tenacity.INSTANCE.getConfigManager().loadConfig(loadData, false)) {
-                                NotificationManager.post(NotificationType.SUCCESS, "Success", "Config loaded successfully!");
+                                NotificationManager.post(NotificationType.SUCCESS, "Success", "Config successfully loaded!");
                             } else {
-                                NotificationManager.post(NotificationType.WARNING, "Error", "The online config did not load successfully!");
+                                NotificationManager.post(NotificationType.WARNING, "Error", "The online config did not load successfully.");
                             }
                         });
                         break;
@@ -114,9 +114,9 @@ public class LocalConfigRect implements Screen {
                             String saveData = Tenacity.INSTANCE.getConfigManager().serialize();
 
                             if (Tenacity.INSTANCE.getConfigManager().saveConfig(config.getName(), saveData)) {
-                                NotificationManager.post(NotificationType.SUCCESS, "Success", "Config update successfully!");
+                                NotificationManager.post(NotificationType.SUCCESS, "Success", "Config successfully updated!");
                             } else {
-                                NotificationManager.post(NotificationType.WARNING, "Error", "The config did not update successfully!");
+                                NotificationManager.post(NotificationType.WARNING, "Error", "The config did not update successfully.");
                             }
 
                             Tenacity.INSTANCE.getSideGui().getTooltips().clear();
@@ -127,9 +127,9 @@ public class LocalConfigRect implements Screen {
                         Form uploadForm = Tenacity.INSTANCE.getSideGui().displayForm("Upload Config");
                         uploadForm.setTriUploadAction((name, description, server) -> {
                             Multithreading.runAsync(() -> {
-                                String fileData = FileUtils.readFile(config.getFile());
-                                CloudUtils.postOnlineConfig(name, description, server, fileData);
-                                Tenacity.INSTANCE.getCloudDataManager().refreshData();
+                                //String fileData = FileUtils.readFile(config.getFile());
+                                //CloudUtils.postOnlineConfig(name, description, server, fileData);
+                                //Tenacity.INSTANCE.getCloudDataManager().refreshData();
                             });
                         });
                         break;

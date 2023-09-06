@@ -209,9 +209,9 @@ public class SideGUI implements Screen {
 
         }
 
-        if (!Tenacity.INSTANCE.getCloudDataManager().isRefreshing()) {
+        /*if (!Tenacity.INSTANCE.getCloudDataManager().isRefreshing()) {
             tooltips.forEach(tooltip -> tooltip.drawScreen(mouseX, mouseY));
-        }
+        }*/
 
     }
 

@@ -8,7 +8,7 @@ import dev.tenacity.module.settings.ParentAttribute;
 import dev.tenacity.module.settings.impl.BooleanSetting;
 import dev.tenacity.module.settings.impl.MultipleBoolSetting;
 import dev.tenacity.module.settings.impl.NumberSetting;
-import dev.tenacity.ui.clickguis.modern.ModernClickGui;
+import dev.tenacity.ui.clickguis.modern.ModernClickGUI;
 import dev.tenacity.utils.render.RenderUtil;
 import dev.tenacity.utils.render.blur.KawaseBloom;
 import dev.tenacity.utils.render.blur.KawaseBlur;
@@ -26,12 +26,12 @@ public class PostProcessing extends Module {
     private final NumberSetting offset = new NumberSetting("Blur Offset", 3, 10, 1, 1);
     private final BooleanSetting bloom = new BooleanSetting("Bloom", true);
     public static MultipleBoolSetting glowOptions = new MultipleBoolSetting("Glow Options",
-            new BooleanSetting("Arraylist", true),
-            new BooleanSetting("ClickGui", false),
+            new BooleanSetting("ArrayList", true),
+            new BooleanSetting("ClickGUI", false),
             new BooleanSetting("Watermark", true),
             new BooleanSetting("Statistics", true),
             new BooleanSetting("Radar", true),
-            new BooleanSetting("TargetHud", true),
+            new BooleanSetting("TargetHUD", true),
             new BooleanSetting("Spotify", true),
             new BooleanSetting("Notifications", false),
             new BooleanSetting("Keystrokes", false));
@@ -56,10 +56,10 @@ public class PostProcessing extends Module {
             Gui.drawRect2(2, sr.getScaledHeight() - (14 * GuiChat.openingAnimation.getOutput().floatValue()), sr.getScaledWidth() - 4, 12, Color.BLACK.getRGB());
         }
 
-        if (mc.currentScreen == ClickGUIMod.dropdownClickGui) {
-            ClickGUIMod.dropdownClickGui.renderEffects();
+        if (mc.currentScreen == ClickGUIMod.dropdownClickGUI) {
+            ClickGUIMod.dropdownClickGUI.renderEffects();
         }
-        if (mc.currentScreen == ClickGUIMod.dropdownClickGui || mc.currentScreen == ClickGUIMod.modernClickGui ) {
+        if (mc.currentScreen == ClickGUIMod.dropdownClickGUI || mc.currentScreen == ClickGUIMod.modernClickGUI || mc.currentScreen == ClickGUIMod.compactClickGUI) {
             Tenacity.INSTANCE.getSideGui().drawForEffects(bloom);
             Tenacity.INSTANCE.getSearchBar().drawEffects();
         }
@@ -77,8 +77,8 @@ public class PostProcessing extends Module {
         }
 
         if (bloom) {
-            if (mc.currentScreen instanceof ModernClickGui) {
-                ClickGUIMod.modernClickGui.drawBigRect();
+            if (mc.currentScreen instanceof ModernClickGUI) {
+                ClickGUIMod.modernClickGUI.drawBigRect();
             }
         }
 

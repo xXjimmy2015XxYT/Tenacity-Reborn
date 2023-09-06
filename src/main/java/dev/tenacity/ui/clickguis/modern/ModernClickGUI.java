@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ModernClickGui extends GuiScreen {
+public class ModernClickGUI extends GuiScreen {
 
     public static final Drag drag = new Drag(40, 40);
     public static boolean searching = false;

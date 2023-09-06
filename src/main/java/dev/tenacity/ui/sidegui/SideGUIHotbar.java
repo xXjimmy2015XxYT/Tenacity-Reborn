@@ -23,6 +23,7 @@ import net.minecraft.client.gui.Gui;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SideGUIHotbar implements Screen {
 
@@ -61,9 +62,9 @@ public class SideGUIHotbar implements Screen {
 
     @Override
     public void drawScreen(int mouseX, int mouseY) {
-        if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing()) {
+        /*if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing()) {
             refreshTimer.reset();
-        }
+        }*/
         boolean searching = searchField.isFocused() || !searchField.getText().equals("");
 
         RoundedUtil.drawRound(x + .625f, y + .625f, width - 1.25f, height - 1.25f, 5, ColorUtil.tripleColor(25, alpha));
@@ -99,20 +100,11 @@ public class SideGUIHotbar implements Screen {
             refreshButton.setY(carouselButtons.getY() + 1 + carouselButtons.getRectHeight() / 2f - refreshButton.getHeight() / 2f);
             refreshButton.setAccentColor(Color.WHITE);
             refreshButton.setIconFont(iconFont20);
-            refreshButton.setClickAction(() -> Multithreading.runAsync(() -> Tenacity.INSTANCE.getCloudDataManager().refreshData()));
-
-            boolean refreshing = Tenacity.INSTANCE.getCloudDataManager().isRefreshing();
-            if (refreshing) {
-                float stringWidth = iconFont20.getStringWidth(FontUtil.REFRESH);
-                RenderUtil.rotateStartReal(refreshButton.getX() + stringWidth / 2f, refreshButton.getY() + iconFont20.getHeight() / 2f - 1,
-                        stringWidth, iconFont20.getHeight(), (System.currentTimeMillis() % 1080) / 3f);
-            }
+            refreshButton.setClickAction(() -> Multithreading.runAsync(() -> Tenacity.INSTANCE.getSideGui().getConfigPanel())); /*Tenacity.INSTANCE.getCloudDataManager().refreshData()));*/
 
             refreshButton.drawScreen(mouseX, mouseY);
 
-            if (refreshing) {
-                RenderUtil.rotateEnd();
-            }
+            RenderUtil.rotateEnd();
         }
 
 

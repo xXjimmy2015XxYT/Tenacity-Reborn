@@ -47,15 +47,17 @@ public abstract class TargetHUD implements Utils {
     }
 
     public static void init() {
-        targetHuds.put(TenacityTargetHUD.class, new TenacityTargetHUD());
+        targetHuds.put(AdaptTargetHUD.class, new AdaptTargetHUD());
+        targetHuds.put(AkrienTargetHUD.class, new AkrienTargetHUD());
+        targetHuds.put(AstolfoTargetHUD.class, new AstolfoTargetHUD());
+        targetHuds.put(AutoDoxTargetHUD.class, new AutoDoxTargetHUD());
+        targetHuds.put(AdaptOtherTargetHUD.class, new AdaptOtherTargetHUD());
+        targetHuds.put(ExhiTargetHUD.class, new ExhiTargetHUD());
+        targetHuds.put(NovolineTargetHUD.class, new NovolineTargetHUD());
         targetHuds.put(OldTenacityTargetHUD.class, new OldTenacityTargetHUD());
         targetHuds.put(RiseTargetHUD.class, new RiseTargetHUD());
         targetHuds.put(VapeTargetHUD.class, new VapeTargetHUD());
-        targetHuds.put(ExhiTargetHUD.class, new ExhiTargetHUD());
-        targetHuds.put(AutoDoxTargetHUD.class, new AutoDoxTargetHUD());
-        targetHuds.put(AkrienTargetHUD.class, new AkrienTargetHUD());
-        targetHuds.put(AstolfoTargetHUD.class, new AstolfoTargetHUD());
-        targetHuds.put(NovolineTargetHUD.class, new NovolineTargetHUD());
+        targetHuds.put(TenacityTargetHUD.class, new TenacityTargetHUD());
     }
 
     public void setWidth(float width) {

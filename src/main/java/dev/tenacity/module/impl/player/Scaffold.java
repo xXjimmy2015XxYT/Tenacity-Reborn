@@ -1,4 +1,4 @@
-package dev.tenacity.module.impl.movement;
+package dev.tenacity.module.impl.player;
 
 import dev.tenacity.event.impl.game.TickEvent;
 import dev.tenacity.event.impl.network.PacketSendEvent;
@@ -15,7 +15,6 @@ import dev.tenacity.utils.animations.Animation;
 import dev.tenacity.utils.animations.Direction;
 import dev.tenacity.utils.animations.impl.DecelerateAnimation;
 import dev.tenacity.utils.misc.MathUtils;
-import dev.tenacity.utils.player.ChatUtil;
 import dev.tenacity.utils.player.MovementUtils;
 import dev.tenacity.utils.player.RotationUtils;
 import dev.tenacity.utils.player.ScaffoldUtils;
@@ -92,7 +91,7 @@ public class Scaffold extends Module {
     private final Animation anim = new DecelerateAnimation(250, 1);
 
     public Scaffold() {
-        super("Scaffold", Category.MOVEMENT, "Automatically places blocks under you");
+        super("Scaffold", Category.PLAYER, "Automatically places blocks under you");
         this.addSettings(countMode, rotations, rotationMode, placeType, keepYMode, sprintMode, towerMode, swingMode, delay, timer,
                 auto3rdPerson, speedSlowdown, speedSlowdownAmount, itemSpoof, downwards, safewalk, sprint, sneak, tower, towerTimer,
                 swing, autoJump, hideJump, baseSpeed, keepY);

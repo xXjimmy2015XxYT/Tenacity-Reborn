@@ -1,7 +1,7 @@
 package dev.tenacity.utils.player;
 
 import dev.tenacity.Tenacity;
-import dev.tenacity.module.impl.movement.Scaffold;
+import dev.tenacity.module.impl.player.Scaffold;
 import dev.tenacity.module.impl.movement.Speed;
 import dev.tenacity.utils.Utils;
 import net.minecraft.block.Block;

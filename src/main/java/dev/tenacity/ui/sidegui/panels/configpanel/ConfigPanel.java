@@ -77,13 +77,13 @@ public class ConfigPanel extends Panel {
     @Override
     public void drawScreen(int mouseX, int mouseY) {
         //Every 20 seconds we update the votes count
-        if (voteRefreshTimer.hasTimeElapsed(30000)) {
+        /*if (voteRefreshTimer.hasTimeElapsed(30000)) {
             Multithreading.runAsync(() -> Tenacity.INSTANCE.getCloudDataManager().refreshVotes());
             voteRefreshTimer.reset();
         }
 
 
-        Tenacity.INSTANCE.getCloudDataManager().applyVotes();
+        Tenacity.INSTANCE.getCloudDataManager().applyVotes();*/
 
         tenacityBoldFont40.drawString("Configs", getX() + 8, getY() + 8, getTextColor());
 
@@ -116,9 +116,9 @@ public class ConfigPanel extends Panel {
                         Form uploadForm = Tenacity.INSTANCE.getSideGui().displayForm("Upload Config");
                         uploadForm.setTriUploadAction((name, description, server) -> {
                             Multithreading.runAsync(() -> {
-                                String fileData = Tenacity.INSTANCE.getConfigManager().serialize();
-                                CloudUtils.postOnlineConfig(name, description, server, fileData);
-                                Tenacity.INSTANCE.getCloudDataManager().refreshData();
+                                //String fileData = Tenacity.INSTANCE.getConfigManager().serialize();
+                                //CloudUtils.postOnlineConfig(name, description, server, fileData);
+                                //Tenacity.INSTANCE.getCloudDataManager().refreshData();
                             });
                         });
                         break;
@@ -127,7 +127,7 @@ public class ConfigPanel extends Panel {
                         saveForm.setUploadAction((name, description) -> {
                             Multithreading.runAsync(() -> {
                                 Tenacity.INSTANCE.getConfigManager().saveConfig(name);
-                                Tenacity.INSTANCE.getCloudDataManager().refreshData();
+                                //Tenacity.INSTANCE.getCloudDataManager().refreshData();
                             });
                         });
                         break;
@@ -177,12 +177,12 @@ public class ConfigPanel extends Panel {
                 compactMode.drawScreen(mouseX, mouseY);
 
                 if (!sortingSelection.equals(sorting.getSelection())) {
-                    Multithreading.runAsync(() -> Tenacity.INSTANCE.getCloudDataManager().refreshData());
+                    //Multithreading.runAsync(() -> Tenacity.INSTANCE.getCloudDataManager().refreshData());
                     sortingSelection = sorting.getSelection();
                 }
 
-                if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing())
-                    return;
+                /*if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing())
+                    return;*/
 
                 //6 spacing on left and right = 12
                 //12 + ((12 spacing between configs) * 2 large spaces because we want 3 configs on the top)
@@ -256,8 +256,8 @@ public class ConfigPanel extends Panel {
                 loadVisuals.setAlpha(getAlpha());
                 loadVisuals.drawScreen(mouseX, mouseY);
 
-                if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing())
-                    return;
+                /*if (Tenacity.INSTANCE.getCloudDataManager().isRefreshing())
+                    return;*/
 
                 //6 spacing on left and right = 12
                 //12 + ((12 spacing between configs) * 2 large spaces because we want 3 configs on the top)

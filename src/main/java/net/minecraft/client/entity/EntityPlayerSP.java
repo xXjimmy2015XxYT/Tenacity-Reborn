@@ -63,12 +63,12 @@ public class EntityPlayerSP extends AbstractClientPlayer {
     private float lastReportedPitch;
 
     /**
-     * the last sneaking state sent to the server
+     * The last sneaking state sent to the server
      */
     public static boolean serverSneakState;
 
     /**
-     * the last sprinting state sent to the server
+     * The last sprinting state sent to the server
      */
     public static boolean serverSprintState;
 
@@ -83,8 +83,8 @@ public class EntityPlayerSP extends AbstractClientPlayer {
     protected Minecraft mc;
 
     /**
-     * Used to tell if the player pressed forward twice. If this is at 0 and it's pressed (And they are allowed to
-     * sprint, aka enough food on the ground etc.) it sets this to 7. If it's pressed and it's greater than 0 enable
+     * Used to tell if the player pressed forward twice. If this is at 0, and it's pressed (And they are allowed to
+     * sprint, aka enough food on the ground etc.) it sets this to 7. If it's pressed, and it's greater than 0 enable
      * sprinting.
      */
     protected int sprintToggleTimer;
@@ -679,11 +679,11 @@ public class EntityPlayerSP extends AbstractClientPlayer {
         this.movementInput.updatePlayerMoveState();
 
         if (this.isUsingItem() && !this.isRiding()) {
-            SlowDownEvent slowDownEvent = new SlowDownEvent();
+            final SlowDownEvent slowDownEvent = new SlowDownEvent(0.2F, 0.2F);
             Tenacity.INSTANCE.getEventProtocol().handleEvent(slowDownEvent);
             if (!slowDownEvent.isCancelled()) {
-                this.movementInput.moveStrafe *= 0.2F;
-                this.movementInput.moveForward *= 0.2F;
+                this.movementInput.moveStrafe *= slowDownEvent.getForwardMult();
+                this.movementInput.moveForward *= slowDownEvent.getStrafeMult();
                 this.sprintToggleTimer = 0;
             }
         }

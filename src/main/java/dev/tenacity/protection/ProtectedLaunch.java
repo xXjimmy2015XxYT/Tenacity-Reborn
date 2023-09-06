@@ -85,7 +85,7 @@ public class ProtectedLaunch {
 
         // Movement
         modules.put(Sprint.class, new Sprint());
-        modules.put(Scaffold.class, new Scaffold());
+        modules.put(NoSlow.class, new NoSlow());
         modules.put(Speed.class, new Speed());
         modules.put(Flight.class, new Flight());
         modules.put(LongJump.class, new LongJump());
@@ -108,7 +108,7 @@ public class ProtectedLaunch {
         modules.put(Freecam.class, new Freecam());
         modules.put(FastPlace.class, new FastPlace());
         modules.put(SafeWalk.class, new SafeWalk());
-        modules.put(NoSlow.class, new NoSlow());
+        modules.put(Scaffold.class, new Scaffold());
         modules.put(AutoTool.class, new AutoTool());
         modules.put(AntiVoid.class, new AntiVoid());
         modules.put(KillEffects.class, new KillEffects());
