@@ -21,7 +21,7 @@ public interface Utils {
             rubikFont = FontUtil.FontType.RUBIK;
 
 
-    //Regular Fonts
+    // Regular Fonts
     CustomFont tenacityFont12 = tenacityFont.size(12),
             tenacityFont14 = tenacityFont.size(14),
             tenacityFont16 = tenacityFont.size(16),
@@ -35,7 +35,7 @@ public interface Utils {
             tenacityFont40 = tenacityFont.size(40),
             tenacityFont80 = tenacityFont.size(80);
 
-    //Bold Fonts
+    // Bold Fonts
     CustomFont tenacityBoldFont12 = tenacityFont12.getBoldFont(),
             tenacityBoldFont14 = tenacityFont14.getBoldFont(),
             tenacityBoldFont16 = tenacityFont16.getBoldFont(),
@@ -49,14 +49,14 @@ public interface Utils {
             tenacityBoldFont40 = tenacityFont40.getBoldFont(),
             tenacityBoldFont80 = tenacityFont80.getBoldFont();
 
-    //Icon Fontsor i
+    // Icon Fonts
     CustomFont iconFont16 = iconFont.size(16),
             iconFont20 = iconFont.size(20),
             iconFont26 = iconFont.size(26),
             iconFont35 = iconFont.size(35),
             iconFont40 = iconFont.size(40);
 
-    //Enchant Font
+    // Enchant Font
     CustomFont enchantFont14 = tahomaFont.size(14),
     enchantFont12 = tahomaFont.size(12);
 

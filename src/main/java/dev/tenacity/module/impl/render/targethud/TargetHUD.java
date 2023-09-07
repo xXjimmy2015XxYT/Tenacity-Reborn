@@ -53,6 +53,7 @@ public abstract class TargetHUD implements Utils {
         targetHuds.put(AutoDoxTargetHUD.class, new AutoDoxTargetHUD());
         targetHuds.put(AdaptOtherTargetHUD.class, new AdaptOtherTargetHUD());
         targetHuds.put(ExhiTargetHUD.class, new ExhiTargetHUD());
+        targetHuds.put(ExireTargetHUD.class, new ExireTargetHUD());
         targetHuds.put(NovolineTargetHUD.class, new NovolineTargetHUD());
         targetHuds.put(OldTenacityTargetHUD.class, new OldTenacityTargetHUD());
         targetHuds.put(RiseTargetHUD.class, new RiseTargetHUD());

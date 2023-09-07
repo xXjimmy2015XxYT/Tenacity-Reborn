@@ -30,7 +30,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class Speed extends Module {
     private final ModeSetting mode = new ModeSetting("Mode", "Watchdog",
             "Watchdog", "Strafe", "Matrix", "HurtTime", "Vanilla", "BHop", "Verus", "Viper", "Vulcan", "Zonecraft", "Heatseeker", "Mineland");
-    private final ModeSetting watchdogMode = new ModeSetting("Watchdog Mode", "Hop", "Hop", "Dev", "Low Hop", "Ground");
+    private final ModeSetting watchdogMode = new ModeSetting("Watchdog Mode", "Hop", "Hop", "New Hop", "Dev", "Low Hop", "Ground");
     private final ModeSetting verusMode = new ModeSetting("Verus Mode", "Normal", "Low", "Normal");
     private final ModeSetting viperMode = new ModeSetting("Viper Mode", "Normal", "High", "Normal");
     private final BooleanSetting autoDisable = new BooleanSetting("Auto Disable", false);
@@ -71,6 +71,21 @@ public final class Speed extends Module {
         switch (mode.getMode()) {
             case "Watchdog":
                 switch (watchdogMode.getMode()) {
+                    case "New Hop":
+                        if (e.isPre()) {
+                            if (mc.thePlayer.onGround) {
+                                if (MovementUtils.isMoving()) {
+                                    mc.thePlayer.jump();
+                                    MovementUtils.setSpeed(MovementUtils.getBaseMoveSpeed() * 1.6);
+                                    inAirTicks = 0;
+                                }
+                            } else {
+                                inAirTicks++;
+                                if (inAirTicks <= 2)
+                                    MovementUtils.setSpeed(MovementUtils.getBaseMoveSpeed() * 1.16);
+                            }
+                        }
+                        break;
                     case "Hop":
                     case "Low Hop":
                     case "Dev":

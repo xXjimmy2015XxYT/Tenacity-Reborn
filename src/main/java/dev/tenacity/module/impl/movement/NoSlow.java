@@ -18,7 +18,7 @@ public class NoSlow extends Module {
 
     private final ModeSetting mode = new ModeSetting("Mode", "Watchdog", "Vanilla", "NCP", "Watchdog");
     private final NumberSetting forward = new NumberSetting("Forward Multiplier", 1f, 1f, 0.2f, 0.1f);
-    private final NumberSetting strafe = new NumberSetting("Forward Multiplier", 1f, 1f, 0.2f, 0.1f);
+    private final NumberSetting strafe = new NumberSetting("Strafe Multiplier", 1f, 1f, 0.2f, 0.1f);
 
     private boolean synced;
 
